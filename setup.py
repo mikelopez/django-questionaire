@@ -11,7 +11,7 @@ setup(
     author_email='',
     url='',
     license='MIT',
-    package_dir={'django-questionaire': 'django-questionaire'},
+    package_dir={'questionaire': 'questionaire'},
     include_package_data=True,
     packages=find_packages(),
     zip_safe=False,
