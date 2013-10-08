@@ -12,7 +12,7 @@ class Question(models.Model):
 	"""
 	Question of a questionaire.
 	"""
-	question = models.Textield()
+	question = models.TextField()
 	parent = models.ForeignKey('Questionaire')
 
 
