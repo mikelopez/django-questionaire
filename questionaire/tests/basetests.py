@@ -6,6 +6,7 @@ class BaseTest(TestCase):
 	"""
 	def setUp(self):
 		pass
+		
 	def create_questionaire(self, **kwargs):
 		"""
 		Creates a Questionaire Object.

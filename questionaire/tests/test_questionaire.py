@@ -30,8 +30,9 @@ class QuestionaireTestCase(BaseTest):
 
     def test_add_answer(self):
         """Creates an answer for the questions on a questionaire."""
-        question = self.add_question(question="Do you like fishsticks?",
-                                     parent=self.create_questionaire(name="UserSurvey"))
+        questionaire = self.create_questionaire(name="UserSurvey")
+        question = self.add_question(question="Do you like fishsticks?")
+        questionaire.questions.add(question)
         self.assertTrue(write_answer(answer="Sometimes, I do", 
                                      question=question))
 
