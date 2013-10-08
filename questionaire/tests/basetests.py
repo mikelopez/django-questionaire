@@ -1,4 +1,5 @@
 from django.test import TestCase
+from questionaire.models import *
 
 class BaseTest(TestCase):
 	"""
@@ -6,7 +7,7 @@ class BaseTest(TestCase):
 	"""
 	def setUp(self):
 		pass
-		
+
 	def create_questionaire(self, **kwargs):
 		"""
 		Creates a Questionaire Object.

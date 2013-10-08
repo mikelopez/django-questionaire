@@ -26,7 +26,8 @@ class QuestionaireTestCase(BaseTest):
 
     def test_add_question(self):
         """Creates some questions on the questionaire."""
-        self.assertTrue(self.add_question(question="Do you like the color blue?"))
+        self.assertTrue(self.add_question(question="Do you like the color blue?", 
+                                          parent=self.create_questionaire(name='ABC')))
 
     def test_add_answer(self):
         """Creates an answer for the questions on a questionaire."""
@@ -35,6 +36,6 @@ class QuestionaireTestCase(BaseTest):
         question = self.add_question(question="Do you like fishsticks?", 
                                      parent=questionaire)
         question.save()
-        self.assertTrue(write_answer(answer="Sometimes, I do", 
-                                     question=question))
+        self.assertTrue(self.write_answer(answer="Sometimes, I do", 
+                                         question=question))
 
