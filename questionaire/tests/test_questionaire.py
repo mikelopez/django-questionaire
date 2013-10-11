@@ -33,7 +33,6 @@ class QuestionaireTestCase(BaseTest):
             self.assertTrue([t for t in types if val in t])
         self.assertEquals(len(expected_types), len(types))
 
-
     def test_questionaire(self):
         """Creates a new Questionaire."""
         self.assertTrue(self.create_questionaire(name="EmployeeSurvey"))
