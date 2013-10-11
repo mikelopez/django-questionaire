@@ -1,6 +1,7 @@
 from django.db import models
 
-class QuestionaireManage(models.Manager):
+
+class QuestionaireManager(models.Manager):
     """Questionaire model manager."""
     @classmethod
     def add_question(self, q, **kwargs):
@@ -12,28 +13,30 @@ class QuestionaireManage(models.Manager):
         q.save()
         return q
 
+
 class Questionaire(models.Model):
-	"""
-	Questionaire model.
-	"""
-	name = models.CharField(max_length=100)
+    """
+    Questionaire model.
+    """
+    name = models.CharField(max_length=100)
+    objects = QuestionaireManager()
     def add_question(self, **kwargs):
         """Adds a question to a questionaire."""
         q = Questionaire.objects.add_question(self, **kwargs)
         return q
-	
+
 
 class Question(models.Model):
-	"""
-	Question of a questionaire.
-	"""
-	question = models.TextField()
-	parent = models.ForeignKey('Questionaire')
+    """
+    Question of a questionaire.
+    """
+    question = models.TextField()
+    parent = models.ForeignKey('Questionaire')
 
 
 class Answer(models.Model):
-	"""
-	Answer to a question.
-	"""
-	answer = models.TextField()
-	question = models.ForeignKey('Question')
+    """
+    Answer to a question.
+    """
+    answer = models.TextField()
+    question = models.ForeignKey('Question')
