@@ -1,6 +1,16 @@
 from django.db import models
 
-# Create your models here.
+class QuestionaireManage(models.Manager):
+    """Questionaire model manager."""
+    @classmethod
+    def add_question(self, q, **kwargs):
+        """Adds a question to a questionaire."""
+        if not q:
+            return None
+        kwargs['questionaire'] = q
+        q = Question(**kwargs)
+        return q
+
 class Questionaire(models.Model):
 	"""
 	Questionaire model.
