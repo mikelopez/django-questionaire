@@ -42,7 +42,7 @@ class QuestionaireTestCase(BaseTest):
         questionaire = self.create_questionaire(name="ABC")
         question = questionaire.add_question(question="Do you like the color blue?", 
                                              parent=questionaire)
-        self.assertEquals(questionaire.questions.count(), 1)
+        self.assertEquals(questionaire.questions().count(), 1)
 
     def test_add_answer(self):
         """Creates an answer for the questions on a questionaire."""
