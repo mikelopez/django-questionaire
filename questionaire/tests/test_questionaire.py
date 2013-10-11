@@ -21,10 +21,17 @@ class QuestionaireTestCase(BaseTest):
         pass
 
     def test_question_types(self):
-        """Checks for the right question types."""
+        """
+        Checks for the right question types.
+        Also checks the size of types expected types
+        and makes sure there are no additional values in 
+        Question.TYPES that are not needed.
+        """
         types = Question.TYPES
-        for val in ['yes_or_no', 'multiple_choice', 'text']:
+        expected_types = ['yes_or_no', 'multiple_choice', 'text']
+        for val in expected_types:
             self.assertTrue([t for t in types if val in t])
+        self.assertEquals(len(expected_types), len(types))
 
 
     def test_questionaire(self):
