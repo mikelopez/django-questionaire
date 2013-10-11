@@ -9,6 +9,7 @@ class QuestionaireManage(models.Manager):
             return None
         kwargs['questionaire'] = q
         q = Question(**kwargs)
+        q.save()
         return q
 
 class Questionaire(models.Model):
