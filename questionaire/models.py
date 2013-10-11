@@ -6,6 +6,10 @@ class Questionaire(models.Model):
 	Questionaire model.
 	"""
 	name = models.CharField(max_length=100)
+    def add_question(self, **kwargs):
+        """Adds a question to a questionaire."""
+        q = Questionaire.objects.add_question(self, **kwargs)
+        return q
 	
 
 class Question(models.Model):
