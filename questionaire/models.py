@@ -34,6 +34,11 @@ class Question(models.Model):
     """
     Question of a questionaire.
     """
+    TYPES = (
+        ('text', 'text'),
+        ('multiple_choice', 'multiple_choice'),
+        ('yes_or_no', 'yes_or_no'),
+    )
     question = models.TextField()
     parent = models.ForeignKey('Questionaire')
 
