@@ -8,7 +8,7 @@ class QuestionaireManager(models.Manager):
         """Adds a question to a questionaire."""
         if not q:
             return None
-        kwargs['questionaire'] = q
+        kwargs['parent'] = q
         q = Question(**kwargs)
         q.save()
         return q
@@ -20,6 +20,10 @@ class Questionaire(models.Model):
     """
     name = models.CharField(max_length=100)
     objects = QuestionaireManager()
+    def questions(self):
+        """Returns the QuerySet list of questions."""
+        return self.question_set.select_related()
+
     def add_question(self, **kwargs):
         """Adds a question to a questionaire."""
         q = Questionaire.objects.add_question(self, **kwargs)
