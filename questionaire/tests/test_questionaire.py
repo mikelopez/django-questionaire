@@ -24,7 +24,7 @@ class QuestionaireTestCase(BaseTest):
         """Checks for the right question types."""
         types = Question.TYPES
         for val in ['yes_or_no', 'multiple_choice', 'text']:
-            self.assertTrue([t for t in types if val in ])
+            self.assertTrue([t for t in types if val in t])
 
 
     def test_questionaire(self):
